@@ -1,0 +1,24 @@
+{% extends 'spot/layouts/base.html' %}
+
+{% block content %}
+    <div class="item">
+        <div> {{ genres_str }} </div>
+        <img src="{{ music.image.url }}" alt="">
+        <div>{{ music.name }}</div>
+        <audio controls>
+            <source src="{{ music.file.url }}">
+        </audio>
+        <form action="" method="post">
+            {% csrf_token %}
+            <select name="playlist" id="">
+                {% for playlist in playlists %}
+                    <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+                {% endfor %}
+                <option disabled selected>Выберите плейлист</option>
+            </select>
+            <button>Добавить</button>
+        </form>
+    </div>
+{% endblock %}
+
+

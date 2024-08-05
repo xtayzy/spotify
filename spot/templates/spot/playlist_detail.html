@@ -1,0 +1,45 @@
+{% extends 'spot/layouts/base.html' %}
+
+{% block title %}
+    Play List
+{% endblock %}
+
+{% block content %}
+    <div class="top" style="margin-bottom: 40px">
+        <div>{{ playlist.name }}</div>
+        <a href="{% url 'playlist_delete' pk=playlist.pk %}">Удалить плейлист</a>
+    </div>
+    <div class="list">
+
+        {% for music in playlist.musics.all %}
+            <div class="item">
+                <img src="{{ music.image.url }}" alt="">
+                <div>
+                    {{ music.name }}
+                </div>
+                <audio controls>
+                    <source src="{{ music.file.url }}">
+                </audio>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <button name="music" value="{{ playlist.id }}">Удалить</button>
+                </form>
+            </div>
+        {% empty %}
+            <h1> В вашем плейлисте еще нет песен</h1>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

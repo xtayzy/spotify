@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} default title {% endblock title %}</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: #121212;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #1DB954;
+            padding: 20px 0 20px 0;
+            width: 100%;
+            border-bottom: 3px solid #003110;
+
+            .nav-item {
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+                margin-right: 20px;
+                transition: 0.3s;
+            }
+        }
+
+        .nav-item:hover {
+            color: #003110;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            background-color: #282828;
+            padding: 30px 20px 30px 20px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            color: #c0c0c0;
+            gap: 20px;
+        }
+
+        .item img {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .item select {
+            background-color: #282828;
+            color: white;
+            border: 1px solid #505050;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+
+        .item button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px 8px 15px;
+            font-size: 12px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px 10px 20px;
+            color: #b7b7b7;
+            font-size: 24px;
+            border-bottom: 1px solid #282828;
+
+            a {
+                text-decoration: none;
+                color: #b7b7b7;
+            }
+        }
+
+        .form form {
+            display: flex;
+            padding: 20px;
+            width: 600px;
+            flex-wrap: wrap;
+            gap: 15px;
+            background-color: #282828;
+
+            label {
+                display: none;
+            }
+
+            input[type='text'] {
+                background-color: #545454;
+                color: white;
+                border: 1px solid #505050;
+                border-radius: 5px;
+                padding: 5px; /
+                font-size: 12px;
+                width: 540px
+            }
+
+            input[type='checkbox'] {
+                height: 24px;
+                width: 24px;
+            }
+
+            button {
+                width: 100%;
+                background-color: #545454;
+                border: 0;
+            }
+        }
+
+        .form-up {
+            background-color: #282828;
+        }
+
+        .vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            border: 1px solid black;
+            padding: 20px;
+
+            .vertical-item {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    {% include 'spot/includes/header.html' %}
+</header>
+
+<main>
+    {% block content %}
+
+    {% endblock content %}
+</main>
+
+<footer>
+    {% include 'spot/includes/footer.html' %}
+
+</footer>
+</body>
+</html>

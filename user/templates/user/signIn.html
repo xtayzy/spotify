@@ -1,0 +1,13 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'sign-in' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Авторироваться</button>
+    </form>
+{% endblock content %}

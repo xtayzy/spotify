@@ -1,0 +1,47 @@
+{% extends 'spot/layouts/base.html' %}
+
+{% block title %} Добавить музыку {% endblock %}
+
+{% block content %}
+
+    <style>
+        .formm {
+            background-color: #282828;
+            padding: 20px 40px 20px 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+
+            form input,
+            form select {
+                background-color: #333333;
+                color: white;
+                border: 1px solid #505050;
+                padding: 10px;
+                font-size: 14px;
+                width: 100%;
+            }
+
+
+            form button {
+                width: 100%;
+                background-color: #1DB954;
+                color: white;
+                border: 0;
+                padding: 10px 20px;
+            }
+        }
+
+
+    </style>
+
+    <div class="formm">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Загрузить</button>
+        </form>
+    </div>
+{% endblock %}

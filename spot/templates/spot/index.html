@@ -1,0 +1,22 @@
+{% extends 'spot/layouts/base.html' %}
+
+
+
+{% block title %}
+    Genres
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="list">
+        {% for genre in genres %}
+            <a href="{% url 'genre' pk=genre.pk %}" class="item">
+                <img src="{{ genre.image.url }}" alt="">
+                <p>{{ genre.name }}</p>
+            </a>
+        {% empty %}
+            <p>жанров пока нет</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

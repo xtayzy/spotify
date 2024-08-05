@@ -1,0 +1,22 @@
+{% extends 'spot/layouts/base.html' %}
+
+
+
+{% block title %}
+    Genres
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="list">
+        {% for album in albums %}
+            <a href="{% url 'album' pk=album.pk %}" class="item">
+                <img src="{{ album.image.url }}" alt="">
+                <p>{{ album.name }}</p>
+            </a>
+        {% empty %}
+            <p>альбомов пока нет</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

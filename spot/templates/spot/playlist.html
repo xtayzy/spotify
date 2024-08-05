@@ -1,0 +1,21 @@
+{% extends 'spot/layouts/base.html' %}
+
+{% block content %}
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <button>Добавить</button>
+        </form>
+    </div>
+    <div class="list">
+        {% for playlist in playlists %}
+            <a href="{% url 'playlist_detail' pk=playlist.pk %}" class="item">
+                <img src="{{ playlist.image.url }}" alt="">
+                <p>{{ playlist.name }}</p>
+            </a>
+        {% empty %}
+            <p>жанров пока нет</p>
+        {% endfor %}
+    </div>
+{% endblock %}
